@@ -440,7 +440,16 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-two-papers-were-accepted-by-naacl-2025-with-one-oral-presentation",
+            },},{id: "news-one-paper-was-accepted-by-icml-2024",
+          title: 'One paper was accepted by ICML 2024.',
+          description: "",
+          section: "News",},{id: "news-one-paper-was-accepted-by-kdd-2024-research-track",
+          title: 'One paper was accepted by KDD 2024 - Research Track.',
+          description: "",
+          section: "News",},{id: "news-one-paper-was-accepted-by-neurips-2024",
+          title: 'One paper was accepted by NeurIPS 2024.',
+          description: "",
+          section: "News",},{id: "news-two-papers-were-accepted-by-naacl-2025-with-one-oral-presentation",
           title: 'Two papers were accepted by NAACL 2025 with one oral presentation.',
           description: "",
           section: "News",},{id: "news-two-papers-were-accepted-by-iclr-2025",
