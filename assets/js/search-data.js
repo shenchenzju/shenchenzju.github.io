@@ -440,16 +440,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+            },},{id: "news-two-papers-were-accepted-by-naacl-2025-with-one-oral-presentation",
+          title: 'Two papers were accepted by NAACL 2025 with one oral presentation.',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
+          section: "News",},{id: "news-two-papers-were-accepted-by-iclr-2025",
+          title: 'Two papers were accepted by ICLR 2025.',
           description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+          section: "News",},{id: "news-one-paper-was-accepted-by-acl-2025-main-conference",
+          title: 'One paper was accepted by ACL 2025 main conference.',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
