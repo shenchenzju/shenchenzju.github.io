@@ -30,7 +30,7 @@ latest_posts:
 I am a Senior Algorithm Expert at Alibaba Cloud’s Apsara Lab and Tongyi Lab. I obtained my Ph.D. degree and B.S. degree both from Zhejiang University in 2018 and 2012, respectively. 
 
 My current research focuses on large language models for `reasoning` and `content safety`. Prior to this, 
-I contributed to the nationwide implementation of the City Brain Project in multiple cities across China, with a focus on applying artificial intelligence to urban governance in order to enhance administrative efficiency and decision-making.
+I contributed to the nationwide implementation of the City Brain Project in multiple cities across China, with a focus on applying artificial intelligence to urban governance in order to enhance administrative efficiency.
 
 
 :sparkles: :smile: We are recruiting interns who are interested in large language model `reasoning`. Please feel free to contact me.
