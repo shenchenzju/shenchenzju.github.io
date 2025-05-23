@@ -2,13 +2,13 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: # the website title (if blank, full name will be used instead)
+title: Chen Shen (申晨) # the website title (if blank, full name will be used instead)
 first_name: Chen
 middle_name: 
 last_name: Shen
 chinese_name: (申晨)
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Please feel free to contact me via email or WeChat.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 footer_text: >
