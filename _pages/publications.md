@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: (*Corresponding Author †Project Lead)
+description: (*Corresponding Author, †Project Lead)
 nav: true
 nav_order: 2
 ---
