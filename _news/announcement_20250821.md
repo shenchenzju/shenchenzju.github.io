@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Two papers was accepted by **EMNLP 2025**.
+Two papers was accepted by **EMNLP 2025** with one oral presentation.
