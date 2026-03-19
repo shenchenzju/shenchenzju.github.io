@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-One paper was accepted by **ACL 2025** main conference.
+🎉 Excited to share that our paper has been accepted by **ACL 2025** main conference! Congratulations to all co-authors!
