@@ -384,26 +384,29 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-one-paper-was-accepted-by-icml-2024",
-          title: 'One paper was accepted by ICML 2024.',
+            },},{id: "news-our-paper-has-been-accepted-by-icml-2024-congratulations-to-the-team",
+          title: '📜 Our paper has been accepted by ICML 2024! Congratulations to the team!...',
           description: "",
-          section: "News",},{id: "news-one-paper-was-accepted-by-kdd-2024-research-track",
-          title: 'One paper was accepted by KDD 2024 - Research Track.',
+          section: "News",},{id: "news-excited-to-announce-our-paper-accepted-by-kdd-2024-research-track",
+          title: '📜 Excited to announce our paper accepted by KDD 2024 Research Track!',
           description: "",
-          section: "News",},{id: "news-one-paper-was-accepted-by-neurips-2024",
-          title: 'One paper was accepted by NeurIPS 2024.',
+          section: "News",},{id: "news-our-paper-has-been-accepted-by-neurips-2024-congrats-to-all-authors",
+          title: '📜 Our paper has been accepted by NeurIPS 2024! Congrats to all authors!...',
           description: "",
-          section: "News",},{id: "news-two-papers-were-accepted-by-naacl-2025-with-one-oral-presentation",
-          title: 'Two papers were accepted by NAACL 2025 with one oral presentation.',
+          section: "News",},{id: "news-fantastic-two-papers-accepted-by-naacl-2025-including-one-oral-presentation-well-done-team",
+          title: '🎉 Fantastic! Two papers accepted by NAACL 2025, including one Oral Presentation! Well...',
           description: "",
-          section: "News",},{id: "news-two-papers-were-accepted-by-iclr-2025",
-          title: 'Two papers were accepted by ICLR 2025.',
+          section: "News",},{id: "news-great-news-two-papers-accepted-by-iclr-2025-kudos-to-the-team",
+          title: '🎉 Great news! Two papers accepted by ICLR 2025! Kudos to the team!...',
           description: "",
-          section: "News",},{id: "news-one-paper-was-accepted-by-acl-2025-main-conference",
-          title: 'One paper was accepted by ACL 2025 main conference.',
+          section: "News",},{id: "news-excited-to-share-that-our-paper-has-been-accepted-by-acl-2025-main-conference-congratulations-to-all-co-authors",
+          title: '🎉 Excited to share that our paper has been accepted by ACL 2025...',
           description: "",
-          section: "News",},{id: "news-two-papers-was-accepted-by-emnlp-2025",
-          title: 'Two papers was accepted by EMNLP 2025.',
+          section: "News",},{id: "news-outstanding-two-papers-accepted-by-emnlp-2025-including-one-oral-presentation-great-achievement",
+          title: '🏆 Outstanding! Two papers accepted by EMNLP 2025, including one Oral Presentation! Great...',
+          description: "",
+          section: "News",},{id: "news-amazing-our-paper-accepted-by-neurips-2025-with-an-oral-presentation-congratulations",
+          title: '🏆 Amazing! Our paper accepted by NeurIPS 2025 with an Oral Presentation! Congratulations!...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
@@ -463,6 +466,20 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://github.com/shenchenzju", "_blank");
+        },
+      },{
+        id: 'social-dblp',
+        title: 'DBLP',
+        section: 'Socials',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/", "_blank");
         },
       },{
         id: 'social-scholar',
