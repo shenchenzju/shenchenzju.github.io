@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-📜 Excited to announce our paper accepted by **KDD 2024** Research Track!
+One paper is accepted by **KDD 2024**.

@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🏆 Amazing! Our paper accepted by **NeurIPS 2025** with an **Oral Presentation**! Congratulations!
+Two papers are accepted by **NeurIPS 2025**, including one **ORAL**.

@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🏆 Outstanding! Two papers accepted by **EMNLP 2025**, including one **Oral Presentation**! Great achievement!
+Two papers are accepted by **EMNLP 2025**, including one **ORAL**.

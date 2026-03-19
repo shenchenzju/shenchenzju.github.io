@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-📜 Our paper has been accepted by **NeurIPS 2024**! Congrats to all authors!
+One paper is accepted by **NeurIPS 2024**.

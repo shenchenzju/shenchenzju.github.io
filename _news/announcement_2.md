@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Great news! Two papers accepted by **ICLR 2025**! Kudos to the team!
+Two papers are accepted by **ICLR 2025**.

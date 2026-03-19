@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Fantastic! Two papers accepted by **NAACL 2025**, including one **Oral Presentation**! Well done, team!
+Two papers are accepted by **NAACL 2025**, including one **ORAL**.
