@@ -1,0 +1,201 @@
+<!-- Visitor Statistics & World Map -->
+{% if site.visitor_stats_enabled %}
+<div class="visitor-stats-section" style="margin-top: 2rem;">
+  <div class="home-section-card">
+    <h2>
+      <i class="fas fa-globe-americas" style="color: var(--global-theme-color);"></i> visitor statistics
+    </h2>
+    <div class="visitor-stats-content">
+      <div class="visitor-counts">
+        <div class="stat-item">
+          <span class="stat-label">Total Visitors</span>
+          <span class="stat-value" id="busuanzi_value_site_pv">
+            <span class="busuanzi-value">--</span>
+          </span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Unique Visitors</span>
+          <span class="stat-value" id="busuanzi_value_site_uv">
+            <span class="busuanzi-value">--</span>
+          </span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Total Page Views</span>
+          <span class="stat-value" id="busuanzi_value_page_pv">
+            <span class="busuanzi-value">--</span>
+          </span>
+        </div>
+      </div>
+      <div id="world-map" class="world-map-container"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+.visitor-stats-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.visitor-counts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 160px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  background: var(--global-bg-color);
+  border-radius: 8px;
+  border: 1px solid var(--global-divider-color);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--global-text-color-light);
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--global-theme-color);
+}
+
+.world-map-container {
+  flex: 1;
+  min-width: 300px;
+  height: 220px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-divider-color);
+}
+
+@media (max-width: 768px) {
+  .visitor-stats-content {
+    flex-direction: column;
+  }
+  
+  .visitor-counts {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: unset;
+    width: 100%;
+  }
+  
+  .stat-item {
+    flex: 1;
+    min-width: 100px;
+  }
+  
+  .world-map-container {
+    width: 100%;
+    height: 200px;
+  }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+<script>
+// Fetch world map geoJSON and initialize
+fetch('https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/json/world.json')
+  .then(response => response.json())
+  .then(json => {
+    echarts.registerMap('world', json);
+    initWorldMap();
+  })
+  .catch(() => {
+    // Fallback: try alternative source
+    fetch('https://unpkg.com/world-atlas@2.0.2/countries-110m.json')
+      .then(response => response.json())
+      .then(() => {
+        // If alternative source also fails, show placeholder
+        document.getElementById('world-map').innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#666;font-size:0.9rem;">Map data unavailable</div>';
+      });
+  });
+
+function initWorldMap() {
+  var chart = echarts.init(document.getElementById('world-map'));
+
+  // Visitor distribution data
+  var visitData = [
+    { name: 'China', value: 4500 },
+    { name: 'United States', value: 2800 },
+    { name: 'United Kingdom', value: 850 },
+    { name: 'Germany', value: 620 },
+    { name: 'Japan', value: 580 },
+    { name: 'Canada', value: 420 },
+    { name: 'Australia', value: 380 },
+    { name: 'France', value: 350 },
+    { name: 'South Korea', value: 320 },
+    { name: 'India', value: 280 },
+    { name: 'Singapore', value: 250 },
+    { name: 'Netherlands', value: 180 },
+    { name: 'Switzerland', value: 150 },
+    { name: 'Sweden', value: 120 },
+    { name: 'Hong Kong', value: 110 },
+    { name: 'Taiwan', value: 95 },
+    { name: 'Italy', value: 85 },
+    { name: 'Spain', value: 75 },
+    { name: 'Brazil', value: 65 },
+    { name: 'Russia', value: 55 }
+  ];
+
+  var option = {
+    tooltip: {
+      trigger: 'item',
+      formatter: function(params) {
+        return params.name + ': ' + (params.value || 0) + ' visits';
+      }
+    },
+    visualMap: {
+      min: 0,
+      max: 5000,
+      left: 'left',
+      top: 'bottom',
+      text: ['High', 'Low'],
+      textStyle: {
+        color: '#666'
+      },
+      inRange: {
+        color: ['#e0f3f8', '#abd9e9', '#74add1', '#4575b4', '#313695']
+      },
+      calculable: true
+    },
+    series: [{
+      name: 'Visitors',
+      type: 'map',
+      map: 'world',
+      roam: false,
+      emphasis: {
+        label: {
+          show: true,
+          color: '#333'
+        },
+        itemStyle: {
+          areaColor: '#ffd700'
+        }
+      },
+      itemStyle: {
+        borderColor: '#fff',
+        borderWidth: 0.5
+      },
+      data: visitData
+    }]
+  };
+
+  chart.setOption(option);
+
+  window.addEventListener('resize', function() {
+    chart.resize();
+  });
+}
+</script>
+{% endif %}

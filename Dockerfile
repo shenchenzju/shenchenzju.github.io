@@ -1,4 +1,4 @@
-FROM ruby:slim
+FROM ruby:3.3-slim-bookworm
 
 # uncomment these if you are having this issue with the build:
 # /usr/local/bundle/gems/jekyll-4.3.4/lib/jekyll/site.rb:509:in `initialize': Permission denied @ rb_sysopen - /srv/jekyll/.jekyll-cache/.gitignore (Errno::EACCES)
@@ -19,6 +19,10 @@ LABEL authors="Amir Pourmand,George Araújo" \
 # RUN groupadd -r $GROUPNAME -g $GROUPID && \
 #     useradd -u $USERID -m -g $GROUPNAME $USERNAME
 
+# 使用阿里云镜像加速 apt
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources && \
+    sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources
+
 # install system dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
@@ -32,7 +36,7 @@ RUN apt-get update -y && \
         procps \
         python3-pip \
         zlib1g-dev && \
-    pip --no-cache-dir install --upgrade --break-system-packages nbconvert
+    pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ --upgrade --break-system-packages nbconvert
 
 # clean up
 RUN apt-get clean && \
@@ -54,15 +58,15 @@ ENV EXECJS_RUNTIME=Node \
 RUN mkdir /srv/jekyll
 
 # copy the Gemfile and Gemfile.lock to the image
-ADD Gemfile.lock /srv/jekyll
 ADD Gemfile /srv/jekyll
 
 # set the working directory
 WORKDIR /srv/jekyll
 
-# install jekyll and dependencies
-RUN gem install --no-document jekyll bundler
-RUN bundle install --no-cache
+# install jekyll and dependencies (remove Gemfile.lock to resolve version conflicts)
+RUN rm -f Gemfile.lock && \
+    gem install --no-document jekyll bundler && \
+    bundle install --no-cache
 
 EXPOSE 8080
 

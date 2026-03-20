@@ -20,8 +20,10 @@ manage_gemfile_lock() {
 }
 
 start_jekyll() {
-    manage_gemfile_lock
-    bundle exec jekyll serve --watch --port=8080 --host=0.0.0.0 --livereload --verbose --trace --force_polling &
+    git config --global --add safe.directory '*'
+    rm -f Gemfile.lock
+    bundle install
+    bundle exec jekyll serve --watch --port=8080 --host=0.0.0.0 --livereload --force_polling &
 }
 
 start_jekyll

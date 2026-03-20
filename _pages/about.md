@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Email:</a> jason.sc at alibaba-inc dot com / zjushenchen at gmail dot com
+subtitle: <a href='#'>Email:</a> jason.sc@alibaba-inc.com / zjushenchen@gmail.com
 
 profile:
   align: right
@@ -13,13 +13,44 @@ profile:
  #   # <p>123 your address street</p>
  #   <p>Your City, State 12345</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: true
+social: true
+
+featured_projects:
+  - name: Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning
+    url: https://arxiv.org/abs/2601.09088
+    image: /assets/img/project1.png
+    image_layout: right
+    description: |
+      We released the technical report <strong class="highlight-term">"Distribution-Aligned Sequence Distillation for Superior Long-CoT Reasoning"</strong>, along with two reasoning models trained on Qwen base (DASD-4B-Thinking / DASD-30B-A3B-Thinking-Preview) and the corresponding training data. Upon open-sourcing, this work received enthusiastic responses from the Hugging Face community. Our training data quickly <strong class="highlight-achievement">topped the HuggingFace Dataset Trending leaderboard</strong>, <strong class="highlight-achievement">ranking #1 for over ten consecutive days (Jan 20-31)</strong>. The total downloads <strong class="highlight-achievement">exceeded 70K within three weeks</strong>, with models and derived models accumulating <strong class="highlight-achievement">over 20K downloads</strong>.
+    links:
+      - name: ArXiv
+        icon: file-alt
+        url: https://arxiv.org/abs/2601.09088
+        color: "#B31B1B"
+      - name: GitHub
+        icon: github
+        url: https://github.com/D2I-ai/dasd-thinking
+        color: "#24292e"
+      - name: HF Dataset
+        icon: database
+        url: https://huggingface.co/datasets/Alibaba-Apsara/Superior-Reasoning-SFT-gpt-oss-120b
+        color: "#FF9D00"
+      - name: HF Model
+        icon: brain
+        url: https://huggingface.co/Alibaba-Apsara/DASD-4B-Thinking
+        color: "#FF9D00"
+  - name: AI Safety Guardrail based on Tongyi-Skynet LLM
+    url: "#"
+    image: /assets/img/project2.png
+    image_layout: right
+    description: |
+      I led the R&D for the <strong>Tongyi-Skynet LLM-based AI Safety Guardrail</strong> project, which was honored as a <strong>2025 Alibaba & Ant Group Outstanding Technical Project</strong>. My project was one of only three selected from Alibaba Cloud (<strong>Top 3</strong>).<br><br>On Alibaba Cloud, our model provides security protection for <strong>Billions</strong> of calls daily, covering multimodal scenarios (text, image, etc.) and addressing multi-dimensional risks such as content compliance and prompt injection. This helps cloud-based enterprises deploy high-availability, highly compliant AI application closed-loops.
+    links: []
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: # leave blank to include all the news in the `_news` folder
+  enabled: true
+  scrollable: true
 
 latest_posts:
   enabled: false
@@ -27,10 +58,12 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Senior Algorithm Expert at Alibaba Cloud’s Apsara Lab and Tongyi Lab. I obtained my Ph.D. degree and B.S. degree both from Zhejiang University in 2018 and 2012, respectively. 
+I am a Senior Algorithm Expert at Alibaba Cloud. I obtained my Ph.D. degree and B.S. degree both from Zhejiang University in 2018 and 2012, respectively.
 
-My current research focuses on large language models for `reasoning` and `content safety`. Prior to this, 
-I contributed to the nationwide implementation of the City Brain Project in multiple cities across China, with a focus on applying artificial intelligence to urban governance in order to enhance administrative efficiency.
-I have published over 20 papers in top-tier conferences such as NeurIPS / ICLR / ICML / CVPR / ECCV / ACL / NAACL / KDD / ACM MM  and leading journals such as TIP / TCSVT / TMM / TKDE / TOMM.
+My research focuses on **LLM post-training** technologies, spanning both academic research and industrial deployment. My current interests include:
 
-:sparkles: :smile: We are recruiting interns who are interested in large language model `reasoning`. Please feel free to contact me.
+- **Reasoning & Agent:** Enhancing model reasoning and agent capabilities through knowledge distillation and Reinforcement Learning (RL).
+
+- **Model Safety:** Building LLM safety guardrails to intercept multi-dimensional risks—including content violations, prompt injection, jailbreak attacks, and model hallucinations—ensuring end-to-end security across the lifecycle from AIGC to AI Agent operations.
+
+**:sparkles: :smile: We are recruiting self-motivated interns with a strong LLM background. Please feel free to contact me via Email or WeChat.**

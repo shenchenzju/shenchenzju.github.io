@@ -930,6 +930,28 @@ html.transition *:after {
       }
     }
   }
+
+  // Compact about content styles
+  article {
+    > div.clearfix {
+      p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+      }
+
+      ul, ol {
+        margin-bottom: 0.5rem;
+        padding-left: 1.25rem;
+
+        li {
+          font-size: 0.9rem;
+          line-height: 1.4;
+          margin-bottom: 0.2rem;
+        }
+      }
+    }
+  }
 }
 
 progress {
@@ -1415,5 +1437,189 @@ figure.cover {
   /* mouse over link */
   a.cover-link:hover {
     color: #23212d !important;
+  }
+}
+
+// Featured Project Item (inside home-section-card)
+.featured-project-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    a {
+      text-decoration: none;
+      color: var(--global-theme-color);
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      i {
+        margin-left: 0.3rem;
+        opacity: 0.7;
+        font-size: 0.75em;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    color: var(--global-text-color);
+    font-size: 0.9rem;
+  }
+
+  .featured-project-image {
+    margin: 0.75rem 0;
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      max-height: 150px;
+    }
+  }
+
+  .featured-project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+        text-decoration: none;
+      }
+
+      i {
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  // Side image layout (text left, image right)
+  &.has-side-image {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+
+    .project-content {
+      flex: 1;
+      min-width: 0;
+      padding-bottom: 0;
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 0.35rem;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    .project-image {
+      flex-shrink: 0;
+      width: 200px;
+
+      img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+
+      .project-image {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// News Card Section
+.home-section-card {
+  background-color: var(--global-card-bg-color);
+  border: none;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--global-divider-color);
+    color: var(--global-text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+// News list styles
+.news {
+  .table-responsive {
+    &.news-scrollable {
+      max-height: 9em;
+      overflow-y: auto;
+    }
+  }
+
+  table.table {
+    margin-bottom: 0;
+    width: 100%;
+
+    th {
+      color: var(--global-text-color-light);
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.5rem 0.35rem 0;
+      white-space: nowrap;
+    }
+
+    td {
+      font-size: 0.9rem;
+      padding: 0.35rem 0;
+      line-height: 1.5;
+    }
+
+    tr:last-child td,
+    tr:last-child th {
+      padding-bottom: 0;
+    }
   }
 }

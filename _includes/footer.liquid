@@ -9,6 +9,12 @@
   {% if site.last_updated %}
     Last updated: {{ 'now' | date: '%B %d, %Y' }}.
   {% endif %}
+  {% if site.visitor_stats_enabled %}
+    <span class="footer-divider">|</span>
+    <span id="busuanzi_container_site_pv">
+      <span id="busuanzi_value_site_pv">0</span> visits
+    </span>
+  {% endif %}
 {% endcapture %}
 
 {% if site.footer_fixed %}
