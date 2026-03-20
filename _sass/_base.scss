@@ -737,9 +737,106 @@ footer.sticky-bottom {
 
         abbr {
           display: inline-block;
-          background-color: var(--global-theme-color);
           margin-bottom: 0.5rem;
-          color: var(--global-card-bg-color) !important;
+          padding: 0.15rem 0.5rem;
+          border-radius: 4px;
+          font-weight: 600;
+          font-size: 0.75rem;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+
+          // Default style
+          background-color: var(--global-theme-color);
+          color: white !important;
+
+          // ICLR - Blue
+          &[title="International Conference on Learning Representations"],
+          &.ICLR {
+            background: linear-gradient(135deg, #e8a838 0%, #c77d1e 100%);
+            color: white !important;
+          }
+
+          // NeurIPS - Purple
+          &.NeurIPS {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white !important;
+          }
+
+          // ACL - Red
+          &.ACL {
+            background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+            color: white !important;
+          }
+
+          // ICML - Orange
+          &.ICML {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white !important;
+          }
+
+          // CVPR - Blue
+          &.CVPR {
+            background: linear-gradient(135deg, #0077c2 0%, #005a9e 100%);
+            color: white !important;
+          }
+
+          // ECCV - Blue
+          &.ECCV {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white !important;
+          }
+
+          // EMNLP - Orange-Red
+          &.EMNLP {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white !important;
+          }
+
+          // KDD - Gold
+          &.KDD {
+            background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);
+            color: white !important;
+          }
+
+          // Oral Award - Special golden style (must come after conference styles)
+          &[title*="Oral"], &.Oral {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb700 50%, #ffd700 100%) !important;
+            color: #1a1a1a !important;
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+            animation: oral-glow 2s ease-in-out infinite;
+            font-weight: 700;
+          }
+
+          // ICLR - must come after Oral to be overridden
+          &[title="International Conference on Learning Representations"],
+          &.ICLR {
+            background: linear-gradient(135deg, #e8a838 0%, #c77d1e 100%);
+            color: white !important;
+          }
+
+          // arXiv - Gray
+          &.arXiv {
+            background: linear-gradient(135deg, #7f8c8d 0%, #6c7a7a 100%);
+            color: white !important;
+          }
+
+          // IEEE/ACM Journals
+          &.TIP, &.TCSVT, &.TMM, &.TKDE, &.TOMM {
+            background: linear-gradient(135deg, #00629b 0%, #004a75 100%);
+            color: white !important;
+          }
+
+          // Oral Award - Special golden style
+          &.Oral,
+          &[title*="Oral"] {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb700 50%, #ffd700 100%) !important;
+            color: #1a1a1a !important;
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+            animation: oral-glow 2s ease-in-out infinite;
+            font-weight: 700;
+          }
 
           a {
             color: white;
@@ -753,6 +850,15 @@ footer.sticky-bottom {
         .award {
           color: var(--global-theme-color) !important;
           border: 1px solid var(--global-theme-color);
+        }
+      }
+
+      @keyframes oral-glow {
+        0%, 100% {
+          box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 16px rgba(255, 215, 0, 0.7);
         }
       }
 
