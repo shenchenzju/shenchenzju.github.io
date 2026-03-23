@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadAnalyticsData() {
-  fetch('/assets/json/analytics.json?t=' + new Date().getTime())
+  fetch('/assets/json/analytics.json')
     .then(response => response.json())
     .then(data => {
       var count = data.totalPageViews || data.totalVisitors || 0;
@@ -93,7 +93,8 @@ function initWorldMap(geoData) {
       {
         name: 'Visitors',
         type: 'map',
-        geoIndex: 0,
+        map: 'world',
+        roam: false,
         emphasis: {
           label: { show: true, color: '#333' },
           itemStyle: { areaColor: '#ffd700' }
