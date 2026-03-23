@@ -58,16 +58,14 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Senior Algorithm Expert at Alibaba Cloud. I received my Ph.D. and B.S. degrees from Zhejiang University in 2018 and 2012, respectively.
+<h4>Senior Algorithm Expert | Alibaba Cloud**</h4>
 
-My research focuses on **LLM post-training** technologies, spanning both academic research and industrial deployment. My current interests include:
+I received my Ph.D. and B.S. degrees from Zhejiang University in 2018 and 2012, respectively.
+
+My research focuses on **LLM post-training**, bridging the gap between cutting-edge academic research and large-scale industrial deployment. My current interests include:
 
 - **Reasoning & Agents:** Enhancing model reasoning and agent capabilities through knowledge distillation and Reinforcement Learning.
 
 - **Model Safety:** Building LLM safety guardrails to intercept multi-dimensional risks—including content violations, prompt injection, jailbreak attacks, and model hallucinations—ensuring end-to-end security across the lifecycle, from AIGC to AI Agent operations.
-
-
-✨ 😊 We are recruiting self-motivated interns with a strong LLM background. Please feel free to contact me via Email or WeChat.
-
 
 **:sparkles: :smile: We are recruiting self-motivated interns with a strong LLM background. Please feel free to contact me via Email or WeChat.**
