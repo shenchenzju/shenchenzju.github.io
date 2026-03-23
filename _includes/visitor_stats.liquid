@@ -45,10 +45,25 @@ function initWorldMap(geoData) {
     value: item.visitors
   }));
 
+  // Add scatter points for small countries/cities
+  var scatterData = [];
+  geoData.forEach(item => {
+    var coords = getCountryCoords(item.country);
+    if (coords) {
+      scatterData.push({
+        name: item.country,
+        value: coords.concat(item.visitors)
+      });
+    }
+  });
+
   var option = {
     tooltip: {
       trigger: 'item',
       formatter: function(params) {
+        if (params.seriesType === 'scatter') {
+          return params.name + ': ' + params.value[2] + ' visitors';
+        }
         return params.name + ': ' + (params.value || 0) + ' visitors';
       }
     },
@@ -64,22 +79,72 @@ function initWorldMap(geoData) {
       itemWidth: 10,
       itemHeight: 60
     },
-    series: [{
-      name: 'Visitors',
-      type: 'map',
-      map: 'world',
-      roam: false,
-      emphasis: {
-        label: { show: true, color: '#333' },
-        itemStyle: { areaColor: '#ffd700' }
+    series: [
+      {
+        name: 'Visitors',
+        type: 'map',
+        map: 'world',
+        roam: false,
+        emphasis: {
+          label: { show: true, color: '#333' },
+          itemStyle: { areaColor: '#ffd700' }
+        },
+        itemStyle: { borderColor: '#fff', borderWidth: 0.5 },
+        data: visitData
       },
-      itemStyle: { borderColor: '#fff', borderWidth: 0.5 },
-      data: visitData
-    }]
+      {
+        name: 'Cities',
+        type: 'scatter',
+        coordinateSystem: 'geo',
+        symbolSize: function(val) {
+          return Math.max(8, Math.min(30, val[2] / 2));
+        },
+        itemStyle: {
+          color: '#ff6b6b',
+          borderColor: '#fff',
+          borderWidth: 2,
+          shadowBlur: 10,
+          shadowColor: 'rgba(255, 107, 107, 0.5)'
+        },
+        emphasis: {
+          scale: 1.5,
+          itemStyle: {
+            color: '#ffd700'
+          }
+        },
+        data: scatterData
+      }
+    ]
   };
 
   chart.setOption(option);
   window.addEventListener('resize', function() { chart.resize(); });
+}
+
+// Country/City coordinates for scatter points
+function getCountryCoords(country) {
+  var coords = {
+    'Singapore': [103.8198, 1.3521],
+    'Hong Kong': [114.1694, 22.3193],
+    'China': [104.1954, 35.8617],
+    'United States': [-95.7129, 37.0902],
+    'United Kingdom': [-3.4360, 55.3781],
+    'Japan': [138.2529, 36.2048],
+    'Germany': [10.4515, 51.1657],
+    'France': [2.2137, 46.2276],
+    'Australia': [133.7751, -25.2744],
+    'Canada': [-106.3468, 56.1304],
+    'India': [78.9629, 20.5937],
+    'South Korea': [127.7669, 35.9078],
+    'Netherlands': [5.2913, 52.1326],
+    'Switzerland': [8.2275, 46.8182],
+    'Sweden': [18.6435, 60.1282],
+    'Italy': [12.5674, 41.8719],
+    'Spain': [-3.7492, 40.4637],
+    'Brazil': [-51.9253, -14.2350],
+    'Russia': [105.3188, 61.5240]
+  };
+  return coords[country] || null;
 }
 </script>
 {% endif %}
