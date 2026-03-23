@@ -62,10 +62,14 @@ layout: default
             {% if project.image_layout == 'right' and project.image %}
             <div class="project-content">
               <h3>
+                {% if project.url %}
                 <a href="{{ project.url }}" target="_blank" style="color: var(--global-theme-color);">
                   {{ project.name }}
                   <i class="fas fa-external-link-alt" style="font-size: 0.7em;"></i>
                 </a>
+                {% else %}
+                {{ project.name }}
+                {% endif %}
               </h3>
               <p>{{ project.description }}</p>
               {% if project.links %}
@@ -84,10 +88,14 @@ layout: default
             </div>
             {% else %}
             <h3>
+              {% if project.url %}
               <a href="{{ project.url }}" target="_blank" style="color: var(--global-theme-color);">
                 {{ project.name }}
                 <i class="fas fa-external-link-alt" style="font-size: 0.7em;"></i>
               </a>
+              {% else %}
+              {{ project.name }}
+              {% endif %}
             </h3>
             <p>{{ project.description }}</p>
             {% if project.image %}
