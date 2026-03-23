@@ -59,12 +59,12 @@ jobs:
             
             const totalPageViews = visitorResponse.rows?.[0]?.metricValues?.[0]?.value || 0;
             
-            // Fetch geo data (country breakdown)
+            // Fetch geo data (country breakdown by page views)
             const [geoResponse] = await analyticsDataClient.runReport({
               property: `properties/${propertyId}`,
               dateRanges: [
                 {
-                  startDate: '30daysAgo',
+                  startDate: '2026-03-01',
                   endDate: 'today'
                 }
               ],
@@ -72,11 +72,11 @@ jobs:
                 { name: 'country' }
               ],
               metrics: [
-                { name: 'activeUsers' }
+                { name: 'screenPageViews' }
               ],
               orderBys: [
                 {
-                  metric: { metricName: 'activeUsers' },
+                  metric: { metricName: 'screenPageViews' },
                   desc: true
                 }
               ],
