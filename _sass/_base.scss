@@ -411,6 +411,8 @@ ul.task-list input[type="checkbox"] {
     align-items: flex-start;
     gap: 0.5rem;
     flex-shrink: 0;
+    margin-left: auto;
+    margin-right: -2rem;
   }
 
   .contact-icons {
@@ -460,8 +462,8 @@ ul.task-list input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 6rem;
-    padding-left: 3rem;
+    margin-left: 0;
+    padding-left: 1.5rem;
     border-left: 1px solid var(--global-divider-color);
     gap: 0.5rem;
     flex: 1;
