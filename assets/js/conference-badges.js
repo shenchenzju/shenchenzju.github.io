@@ -4,15 +4,16 @@
 document.addEventListener('DOMContentLoaded', function() {
   const conferenceConfig = {
     'ICLR': {
-      icon: '🎓',
+      icon: '<img src="/assets/img/iclr-logo.png" alt="ICLR" class="conf-logo">',
       name: 'ICLR'
     },
     'ICLR Oral': {
-      icon: '🏆',
-      name: 'ICLR'
+      icon: '<img src="/assets/img/iclr-logo.png" alt="ICLR" class="conf-logo">',
+      name: 'ICLR',
+      isOral: true
     },
     'NeurIPS': {
-      icon: '🧠',
+      icon: '<img src="/assets/img/neurips-logo.png" alt="NeurIPS" class="conf-logo">',
       name: 'NeurIPS'
     },
     'ACL': {
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
       name: 'KDD'
     },
     'arXiv': {
-      icon: '📄',
+      icon: '<img src="/assets/img/arxiv-logo.svg" alt="arXiv" class="conf-logo">',
       name: 'arXiv'
     },
     'TIP': {
@@ -84,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
       const config = conferenceConfig[text];
       abbr.classList.add('venue-' + config.name);
       // Add icon before text
-      if (text.includes('Oral')) {
-        abbr.innerHTML = '🏆 ' + text;
+      if (config.isOral) {
+        abbr.innerHTML = config.icon + ' ' + text;
       } else {
         abbr.innerHTML = config.icon + ' ' + text;
       }
@@ -100,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (text.includes('ICLR') && !text.includes('Oral')) {
       abbr.classList.add('venue-ICLR');
       if (!conferenceConfig[text]) {
-        abbr.innerHTML = '🎓 ' + text;
+        abbr.innerHTML = '<img src="/assets/img/iclr-logo.png" alt="ICLR" class="conf-logo"> ' + text;
       }
     }
   });
