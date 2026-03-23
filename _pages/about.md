@@ -41,7 +41,7 @@ featured_projects:
         url: https://huggingface.co/Alibaba-Apsara/DASD-4B-Thinking
         color: "#FF9D00"
   - name: AI Safety Guardrail based on Tongyi-Skynet LLM
-    url: "#"
+    url:
     image: /assets/img/project2.png
     image_layout: right
     description: |
@@ -58,7 +58,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-<h4>Senior Algorithm Expert | Alibaba Cloud**</h4>
+<h5>Senior Algorithm Expert | Alibaba Cloud</h5>
 
 I received my Ph.D. and B.S. degrees from Zhejiang University in 2018 and 2012, respectively.
 
