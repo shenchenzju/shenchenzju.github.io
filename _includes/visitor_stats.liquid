@@ -13,8 +13,9 @@ function loadAnalyticsData() {
   fetch('/assets/json/analytics.json')
     .then(response => response.json())
     .then(data => {
-      if (data && data.totalVisitors && data.totalVisitors > 0) {
-        document.getElementById('ga-visitor-count').textContent = data.totalVisitors.toLocaleString();
+      var count = data.totalPageViews || data.totalVisitors || 0;
+      if (count > 0) {
+        document.getElementById('ga-visitor-count').textContent = count.toLocaleString();
         if (data.geoData && data.geoData.length > 0) {
           initWorldMap(data.geoData);
         }

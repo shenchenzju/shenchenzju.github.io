@@ -43,7 +43,7 @@ jobs:
         
         async function fetchGAData() {
           try {
-            // Fetch total visitors (active users)
+            // Fetch total page views
             const [visitorResponse] = await analyticsDataClient.runReport({
               property: `properties/${propertyId}`,
               dateRanges: [
@@ -53,11 +53,11 @@ jobs:
                 }
               ],
               metrics: [
-                { name: 'activeUsers' }
+                { name: 'screenPageViews' }
               ]
             });
             
-            const totalVisitors = visitorResponse.rows?.[0]?.metricValues?.[0]?.value || 0;
+            const totalPageViews = visitorResponse.rows?.[0]?.metricValues?.[0]?.value || 0;
             
             // Fetch geo data (country breakdown)
             const [geoResponse] = await analyticsDataClient.runReport({
@@ -90,7 +90,7 @@ jobs:
             
             // Write to JSON file
             const analyticsData = {
-              totalVisitors: parseInt(totalVisitors),
+              totalPageViews: parseInt(totalPageViews),
               lastUpdated: new Date().toISOString().split('T')[0],
               geoData: geoData
             };
@@ -101,7 +101,7 @@ jobs:
             );
             
             console.log('Analytics data updated successfully');
-            console.log(`Total visitors: ${totalVisitors}`);
+            console.log(`Total page views: ${totalPageViews}`);
             console.log(`Geo data points: ${geoData.length}`);
             
           } catch (error) {
