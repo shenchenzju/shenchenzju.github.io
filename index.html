@@ -63,10 +63,22 @@ function initWorldMap(geoData) {
     tooltip: {
       trigger: 'item',
       formatter: function(params) {
-        if (params.seriesType === 'scatter') {
+        if (params.seriesType === 'effectScatter') {
           return params.name + ': ' + params.value[2] + ' visitors';
         }
         return params.name + ': ' + (params.value || 0) + ' visitors';
+      }
+    },
+    geo: {
+      map: 'world',
+      roam: false,
+      silent: true,
+      itemStyle: {
+        areaColor: 'transparent',
+        borderColor: 'transparent'
+      },
+      emphasis: {
+        disabled: true
       }
     },
     visualMap: {
@@ -96,10 +108,15 @@ function initWorldMap(geoData) {
       },
       {
         name: 'Cities',
-        type: 'scatter',
+        type: 'effectScatter',
         coordinateSystem: 'geo',
         symbolSize: function(val) {
-          return Math.max(8, Math.min(30, val[2] / 2));
+          return Math.max(10, Math.min(25, val[2] / 1.5));
+        },
+        showEffectOn: 'render',
+        rippleEffect: {
+          brushType: 'stroke',
+          scale: 3
         },
         itemStyle: {
           color: '#ff6b6b',
