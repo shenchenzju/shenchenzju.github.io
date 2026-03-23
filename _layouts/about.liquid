@@ -144,13 +144,20 @@ layout: default
     {% if page.social %}
       <div class="social">
         <div class="contact-icons">{% include social.liquid %}</div>
-
+        {% if site.visitor_stats_enabled %}
+          <div class="visitor-stat-inline">
+            <span class="visitor-count" id="ga-visitor-count">--</span>
+            <span class="visitor-label">visitors since March 2026</span>
+          </div>
+        {% endif %}
         <div class="contact-note">{{ site.contact_note }}</div>
       </div>
     {% endif %}
 
-    <!-- Visitor Statistics -->
-    {% include visitor_stats.liquid %}
+    <!-- Visitor Statistics (hidden, for data only) -->
+    {% if site.visitor_stats_enabled %}
+      <div style="display:none;">{% include visitor_stats.liquid %}</div>
+    {% endif %}
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% include newsletter.liquid center=true %}

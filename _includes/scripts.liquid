@@ -319,7 +319,4 @@
   <script defer src="{{ '/assets/js/newsletter.js' | relative_url | bust_file_cache }}"></script>
 {% endif %}
 
-{% if site.visitor_stats_enabled %}
-  <!-- Busuanzi Visitor Statistics -->
-  <script async src="https://busuanzi.9426.ltd/sdk.js"></script>
-{% endif %}
+{% if site.enable_cronitor_analytics %}

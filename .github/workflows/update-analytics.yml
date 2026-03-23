@@ -1,0 +1,129 @@
+name: Update Google Analytics Data
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-analytics:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install dependencies
+      run: npm install @google-analytics/data
+      
+    - name: Fetch GA Data
+      env:
+        GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
+      run: |
+        # Create service account key file
+        echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > service-account.json
+        
+        # Create Node.js script to fetch data
+        cat > fetch-ga-data.js << 'EOF'
+        const { BetaAnalyticsDataClient } = require('@google-analytics/data');
+        const fs = require('fs');
+        
+        const analyticsDataClient = new BetaAnalyticsDataClient({
+          keyFilename: './service-account.json'
+        });
+        
+        const propertyId = process.env.GA_PROPERTY_ID;
+        
+        async function fetchGAData() {
+          try {
+            // Fetch total visitors (active users)
+            const [visitorResponse] = await analyticsDataClient.runReport({
+              property: `properties/${propertyId}`,
+              dateRanges: [
+                {
+                  startDate: '2026-03-01', // Since March 2026
+                  endDate: 'today'
+                }
+              ],
+              metrics: [
+                { name: 'activeUsers' }
+              ]
+            });
+            
+            const totalVisitors = visitorResponse.rows?.[0]?.metricValues?.[0]?.value || 0;
+            
+            // Fetch geo data (country breakdown)
+            const [geoResponse] = await analyticsDataClient.runReport({
+              property: `properties/${propertyId}`,
+              dateRanges: [
+                {
+                  startDate: '30daysAgo',
+                  endDate: 'today'
+                }
+              ],
+              dimensions: [
+                { name: 'country' }
+              ],
+              metrics: [
+                { name: 'activeUsers' }
+              ],
+              orderBys: [
+                {
+                  metric: { metricName: 'activeUsers' },
+                  desc: true
+                }
+              ],
+              limit: 20
+            });
+            
+            const geoData = geoResponse.rows?.map(row => ({
+              country: row.dimensionValues[0].value,
+              visitors: parseInt(row.metricValues[0].value)
+            })) || [];
+            
+            // Write to JSON file
+            const analyticsData = {
+              totalVisitors: parseInt(totalVisitors),
+              lastUpdated: new Date().toISOString().split('T')[0],
+              geoData: geoData
+            };
+            
+            fs.writeFileSync(
+              './assets/json/analytics.json',
+              JSON.stringify(analyticsData, null, 2)
+            );
+            
+            console.log('Analytics data updated successfully');
+            console.log(`Total visitors: ${totalVisitors}`);
+            console.log(`Geo data points: ${geoData.length}`);
+            
+          } catch (error) {
+            console.error('Error fetching GA data:', error);
+            process.exit(1);
+          }
+        }
+        
+        fetchGAData();
+        EOF
+        
+        node fetch-ga-data.js
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "GitHub Actions"
+        
+        if git diff --quiet assets/json/analytics.json; then
+          echo "No changes to commit"
+        else
+          git add assets/json/analytics.json
+          git commit -m "Update Google Analytics data [skip ci]"
+          git push
+        fi
