@@ -143,14 +143,19 @@ layout: default
     <!-- Social -->
     {% if page.social %}
       <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
+        <div class="social-left">
+          <div class="contact-icons">{% include social.liquid %}</div>
+          <div class="contact-note">{{ site.contact_note }}</div>
+        </div>
         {% if site.visitor_stats_enabled %}
-          <div class="visitor-stat-inline">
-            <span class="visitor-count" id="ga-visitor-count">--</span>
-            <span class="visitor-label">visitors since March 2026</span>
+          <div class="visitor-stat-with-map">
+            <div class="visitor-stat-inline">
+              <span class="visitor-count" id="ga-visitor-count">--</span>
+              <span class="visitor-label">visitors since March 2026</span>
+            </div>
+            <div id="ga-world-map-mini" class="visitor-map-mini"></div>
           </div>
         {% endif %}
-        <div class="contact-note">{{ site.contact_note }}</div>
       </div>
     {% endif %}
 

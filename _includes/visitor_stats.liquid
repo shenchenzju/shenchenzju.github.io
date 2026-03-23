@@ -26,7 +26,8 @@ function loadAnalyticsData() {
 }
 
 function initWorldMap(geoData) {
-  var mapContainer = document.getElementById('ga-world-map');
+  // Try mini map first, then fallback to full map
+  var mapContainer = document.getElementById('ga-world-map-mini') || document.getElementById('ga-world-map');
   if (!mapContainer) {
     var socialSection = document.querySelector('.social');
     if (socialSection) {
@@ -37,6 +38,8 @@ function initWorldMap(geoData) {
     }
   }
   if (!mapContainer || typeof echarts === 'undefined') return;
+  
+  var isMini = mapContainer.id === 'ga-world-map-mini';
 
   var chart = echarts.init(mapContainer);
 
@@ -79,7 +82,7 @@ function initWorldMap(geoData) {
         disabled: true
       }
     },
-    visualMap: {
+    visualMap: isMini ? null : {
       min: 0,
       max: Math.max(...visitData.map(d => d.value), 100),
       left: 'left',
