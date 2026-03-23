@@ -431,18 +431,18 @@ ninja.data = [{
           window.open("https://github.com/shenchenzju", "_blank");
         },
       },{
-        id: 'social-dblp',
-        title: 'DBLP',
-        section: 'Socials',
-        handler: () => {
-          window.open("", "_blank");
-        },
-      },{
         id: 'social-linkedin',
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
           window.open("https://www.linkedin.com/in/", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=b6vn1uMAAAAJ", "_blank");
         },
       },{
         id: 'social-wechat_qr',
