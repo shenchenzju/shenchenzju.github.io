@@ -102,27 +102,21 @@
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
 
 <script>
-// Fetch world map geoJSON and initialize
-fetch('https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/json/world.json')
-  .then(response => response.json())
-  .then(json => {
-    echarts.registerMap('world', json);
+// Initialize world map (map data loaded via world.js)
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof echarts !== 'undefined') {
     initWorldMap();
-  })
-  .catch(() => {
-    // Fallback: try alternative source
-    fetch('https://unpkg.com/world-atlas@2.0.2/countries-110m.json')
-      .then(response => response.json())
-      .then(() => {
-        // If alternative source also fails, show placeholder
-        document.getElementById('world-map').innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#666;font-size:0.9rem;">Map data unavailable</div>';
-      });
-  });
+  }
+});
 
 function initWorldMap() {
-  var chart = echarts.init(document.getElementById('world-map'));
+  var chartDom = document.getElementById('world-map');
+  if (!chartDom) return;
+  
+  var chart = echarts.init(chartDom);
 
   // Visitor distribution data
   var visitData = [

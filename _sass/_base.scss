@@ -859,19 +859,6 @@ footer.sticky-bottom {
               text-decoration: none;
             }
           }
-
-          // Conference logo images
-          .conf-logo {
-            height: 1.2em;
-            width: auto;
-            vertical-align: middle;
-            margin-right: 0.2em;
-            filter: brightness(0) invert(1); // Make logo white
-          }
-
-          &.venue-Oral .conf-logo {
-            filter: none; // Keep original color for Oral
-          }
         }
 
         .award {
