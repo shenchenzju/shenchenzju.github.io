@@ -84,18 +84,6 @@ function initWorldMap(geoData) {
         disabled: true
       }
     },
-    visualMap: isMini ? null : {
-      min: 0,
-      max: Math.max(...visitData.map(d => d.value), 100),
-      left: 'left',
-      top: 'bottom',
-      text: ['High', 'Low'],
-      textStyle: { fontSize: 10, color: '#666' },
-      inRange: { color: ['#e0f3f8', '#abd9e9', '#74add1', '#4575b4', '#313695'] },
-      calculable: true,
-      itemWidth: 10,
-      itemHeight: 60
-    },
     series: [
       {
         name: 'Visitors',
@@ -106,7 +94,11 @@ function initWorldMap(geoData) {
           label: { show: true, color: '#333' },
           itemStyle: { areaColor: '#ffd700' }
         },
-        itemStyle: { borderColor: '#fff', borderWidth: 0.5 },
+        itemStyle: { 
+          borderColor: '#fff', 
+          borderWidth: 0.5,
+          areaColor: '#e0f3f8'
+        },
         data: visitData
       },
       {
