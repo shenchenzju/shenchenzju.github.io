@@ -1,33 +1,33 @@
 <!-- Visitor Statistics - Google Analytics Data -->
 {% if site.visitor_stats_enabled %}
-<!-- GA Data will be loaded by JavaScript from assets/json/analytics.json -->
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
 
 <script>
-// Fetch and display GA visitor count and world map
+// Load GA data from local JSON file (updated by GitHub Actions)
 document.addEventListener('DOMContentLoaded', function() {
+  loadAnalyticsData();
+});
+
+function loadAnalyticsData() {
   fetch('/assets/json/analytics.json')
     .then(response => response.json())
     .then(data => {
-      if (data && data.totalVisitors) {
+      if (data && data.totalVisitors && data.totalVisitors > 0) {
         document.getElementById('ga-visitor-count').textContent = data.totalVisitors.toLocaleString();
-      }
-      // Initialize world map with GA geo data
-      if (data && data.geoData && typeof echarts !== 'undefined') {
-        initWorldMap(data.geoData);
+        if (data.geoData && data.geoData.length > 0) {
+          initWorldMap(data.geoData);
+        }
       }
     })
-    .catch(() => {
-      // Keep default -- if data not available
+    .catch(err => {
+      console.log('Analytics data not available yet:', err);
     });
-});
+}
 
 function initWorldMap(geoData) {
-  // Create map container if not exists
   var mapContainer = document.getElementById('ga-world-map');
   if (!mapContainer) {
-    // Insert map after social section
     var socialSection = document.querySelector('.social');
     if (socialSection) {
       mapContainer = document.createElement('div');
@@ -36,11 +36,10 @@ function initWorldMap(geoData) {
       socialSection.parentNode.insertBefore(mapContainer, socialSection.nextSibling);
     }
   }
-  if (!mapContainer) return;
+  if (!mapContainer || typeof echarts === 'undefined') return;
 
   var chart = echarts.init(mapContainer);
 
-  // Convert GA country names to ECharts format
   var visitData = geoData.map(item => ({
     name: item.country,
     value: item.visitors
@@ -59,13 +58,8 @@ function initWorldMap(geoData) {
       left: 'left',
       top: 'bottom',
       text: ['High', 'Low'],
-      textStyle: {
-        fontSize: 10,
-        color: '#666'
-      },
-      inRange: {
-        color: ['#e0f3f8', '#abd9e9', '#74add1', '#4575b4', '#313695']
-      },
+      textStyle: { fontSize: 10, color: '#666' },
+      inRange: { color: ['#e0f3f8', '#abd9e9', '#74add1', '#4575b4', '#313695'] },
       calculable: true,
       itemWidth: 10,
       itemHeight: 60
@@ -76,27 +70,16 @@ function initWorldMap(geoData) {
       map: 'world',
       roam: false,
       emphasis: {
-        label: {
-          show: true,
-          color: '#333'
-        },
-        itemStyle: {
-          areaColor: '#ffd700'
-        }
+        label: { show: true, color: '#333' },
+        itemStyle: { areaColor: '#ffd700' }
       },
-      itemStyle: {
-        borderColor: '#fff',
-        borderWidth: 0.5
-      },
+      itemStyle: { borderColor: '#fff', borderWidth: 0.5 },
       data: visitData
     }]
   };
 
   chart.setOption(option);
-
-  window.addEventListener('resize', function() {
-    chart.resize();
-  });
+  window.addEventListener('resize', function() { chart.resize(); });
 }
 </script>
 {% endif %}
