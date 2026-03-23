@@ -67,32 +67,15 @@ function initWorldMap(geoData) {
     }
   });
 
-  var maxVal = Math.max(...geoData.map(d => d.visitors));
-
   var option = {
     tooltip: {
       trigger: 'item',
       formatter: function(params) {
         if (params.seriesType === 'effectScatter') {
-          return params.name + ': ' + params.value[2] + ' views';
+          return params.name + ': ' + params.value[2] + ' visitors';
         }
-        return params.name + ': ' + (params.value || 0) + ' views';
+        return params.name + ': ' + (params.value || 0) + ' visitors';
       }
-    },
-    visualMap: {
-      min: 0,
-      max: maxVal,
-      left: 'left',
-      bottom: 10,
-      text: ['High', 'Low'],
-      textStyle: { fontSize: 10, color: '#999' },
-      inRange: {
-        color: ['#e0f3f8', '#0571b0']
-      },
-      itemWidth: 10,
-      itemHeight: 60,
-      calculable: false,
-      show: true
     },
     geo: {
       map: 'world',
