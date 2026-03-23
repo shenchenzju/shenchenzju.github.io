@@ -30,6 +30,8 @@ function loadAnalyticsData() {
 function initWorldMap(geoData) {
   // Try mini map first, then fallback to full map
   var mapContainer = document.getElementById('ga-world-map-mini') || document.getElementById('ga-world-map');
+  console.log('Map container found:', mapContainer ? mapContainer.id : 'null');
+  
   if (!mapContainer) {
     var socialSection = document.querySelector('.social');
     if (socialSection) {
@@ -39,9 +41,13 @@ function initWorldMap(geoData) {
       socialSection.parentNode.insertBefore(mapContainer, socialSection.nextSibling);
     }
   }
-  if (!mapContainer || typeof echarts === 'undefined') return;
+  if (!mapContainer || typeof echarts === 'undefined') {
+    console.log('ECharts not loaded or no container');
+    return;
+  }
   
   var isMini = mapContainer.id === 'ga-world-map-mini';
+  console.log('Is mini map:', isMini, 'Geo data:', geoData);
 
   var chart = echarts.init(mapContainer);
 
