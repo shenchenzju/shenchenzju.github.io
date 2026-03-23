@@ -400,7 +400,7 @@ ul.task-list input[type="checkbox"] {
 .social {
   text-align: center;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
@@ -469,19 +469,18 @@ ul.task-list input[type="checkbox"] {
     .visitor-stat-inline {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: baseline;
       gap: 0.5rem;
       flex-shrink: 0;
 
       .visitor-count-box {
         display: inline-block;
-        background: #2e7d32;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 600;
-        padding: 0.2rem 0.5rem;
-        border-radius: 4px;
-        line-height: 1.4;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--global-theme-color);
+        line-height: 1.2;
+        font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', monospace;
+        letter-spacing: -0.02em;
       }
 
       .visitor-label {
