@@ -45,7 +45,7 @@ featured_projects:
     image: /assets/img/project2.png
     image_layout: right
     description: |
-      I led the R&D for the <strong>Tongyi-Skynet LLM-based AI Safety Guardrail</strong> project, which was honored as a <strong>2025 Alibaba & Ant Group Outstanding Technical Project</strong>. My project was one of only three selected from Alibaba Cloud (<strong>Top 3</strong>).<br><br>On Alibaba Cloud, our model provides security protection for <strong>数亿次</strong> of calls daily, covering multimodal scenarios (text, image, etc.) and addressing multi-dimensional risks such as content compliance and prompt injection. This helps cloud-based enterprises deploy high-availability, highly compliant AI application closed-loops.
+      I led the R&D for the <strong>Tongyi-Skynet LLM-based AI Safety Guardrail</strong> project, which was honored as a <strong>2025 Alibaba & Ant Group Outstanding Technical Project</strong>. My project was one of only three selected from Alibaba Cloud (<strong>Top 3</strong>).<br><br>On Alibaba Cloud, our model provides security protection for <strong>hundreds of millions</strong> of calls daily, covering multimodal scenarios (text, image, etc.) and addressing multi-dimensional risks such as content compliance and prompt injection. This helps cloud-based enterprises deploy high-availability, highly compliant AI application closed-loops.
     links: []
 
 announcements:
