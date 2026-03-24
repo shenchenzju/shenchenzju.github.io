@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadAnalyticsData() {
-  fetch('/assets/json/analytics.json')
+  // Add timestamp to prevent browser cache
+  fetch('/assets/json/analytics.json?t=' + new Date().getTime())
     .then(response => response.json())
     .then(data => {
       var count = data.totalPageViews || data.totalVisitors || 0;
