@@ -6,6 +6,10 @@ on:
     - cron: '0 */6 * * *'
   workflow_dispatch: # Allow manual trigger
 
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   update-analytics:
     runs-on: ubuntu-latest
@@ -115,15 +119,34 @@ jobs:
         
         node fetch-ga-data.js
         
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if git diff --quiet assets/json/analytics.json; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        fi
+        
     - name: Commit and push changes
+      if: steps.check_changes.outputs.has_changes == 'true'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "GitHub Actions"
+        git add assets/json/analytics.json
+        git commit -m "Update Google Analytics data"
+        git push
         
-        if git diff --quiet assets/json/analytics.json; then
-          echo "No changes to commit"
-        else
-          git add assets/json/analytics.json
-          git commit -m "Update Google Analytics data"
-          git push
-        fi
+    - name: Trigger Pages deploy
+      if: steps.check_changes.outputs.has_changes == 'true'
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            workflow_id: 'deploy.yml',
+            ref: 'main'
+          });
+          console.log('Triggered deploy.yml workflow');
