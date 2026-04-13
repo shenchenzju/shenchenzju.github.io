@@ -43,7 +43,6 @@ featured_projects:
   - name: AI Safety Guardrail based on Tongyi-Skynet LLM
     url:
     image: /assets/img/project2.png
-    logo: /assets/img/tongyi.svg
     image_layout: right
     description: |
       I led the R&D for the <strong>Tongyi-Skynet LLM-based AI Safety Guardrail</strong> project, which was honored as a <strong>2025 Alibaba & Ant Group Outstanding Technical Project</strong>. My project was one of only three selected from Tongyi Lab (<strong>Top 3</strong>).<br><br>On Tongyi Lab, our model provides security protection for <strong>hundreds of millions</strong> of calls daily, covering multimodal scenarios (text, image, etc.) and addressing multi-dimensional risks such as content compliance and prompt injection. This helps cloud-based enterprises deploy high-availability, highly compliant AI application closed-loops.
@@ -59,7 +58,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-<h5>Senior Algorithm Expert | Tongyi Lab</h5>
+<h5>Senior Algorithm Expert | Tongyi Lab <img src="/assets/img/tongyi.svg" alt="Tongyi Lab Logo" class="tongyi-lab-logo"></h5>
 
 I received my Ph.D. and B.S. degrees from Zhejiang University in 2018 and 2012, respectively.
 

@@ -1740,17 +1740,6 @@ figure.cover {
       h3 {
         margin-top: 0;
         margin-bottom: 0.35rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-
-        .project-logo {
-          height: 1.5em;
-          width: auto;
-          display: inline-block;
-          vertical-align: middle;
-          flex-shrink: 0;
-        }
       }
 
       p {
@@ -1836,4 +1825,13 @@ figure.cover {
       padding-bottom: 0;
     }
   }
+}
+
+// Tongyi Lab logo in about page
+.tongyi-lab-logo {
+  height: 1.3em;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.3em;
 }
