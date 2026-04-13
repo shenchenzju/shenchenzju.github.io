@@ -1745,9 +1745,11 @@ figure.cover {
         gap: 0.5rem;
 
         .project-logo {
-          height: 1.2em;
+          height: 1.5em;
           width: auto;
+          display: inline-block;
           vertical-align: middle;
+          flex-shrink: 0;
         }
       }
 
