@@ -62,6 +62,9 @@ layout: default
             {% if project.image_layout == 'right' and project.image %}
             <div class="project-content">
               <h3>
+                {% if project.logo %}
+                <img src="{{ project.logo | relative_url }}" alt="{{ project.name }} Logo" class="project-logo">
+                {% endif %}
                 {% if project.url %}
                 <a href="{{ project.url }}" target="_blank" style="color: var(--global-theme-color);">
                   {{ project.name }}

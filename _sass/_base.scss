@@ -1740,6 +1740,15 @@ figure.cover {
       h3 {
         margin-top: 0;
         margin-bottom: 0.35rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .project-logo {
+          height: 1.2em;
+          width: auto;
+          vertical-align: middle;
+        }
       }
 
       p {
