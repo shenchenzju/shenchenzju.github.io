@@ -1,5 +1,5 @@
 {
-  "totalPageViews": 993,
+  "totalPageViews": 998,
   "lastUpdated": "2026-04-21",
   "geoData": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "country": "Singapore",
-      "visitors": 200
+      "visitors": 201
     },
     {
       "country": "China",
@@ -16,7 +16,7 @@
     },
     {
       "country": "Hong Kong",
-      "visitors": 20
+      "visitors": 21
     },
     {
       "country": "Japan",
@@ -24,7 +24,7 @@
     },
     {
       "country": "United Kingdom",
-      "visitors": 7
+      "visitors": 9
     },
     {
       "country": "(not set)",
@@ -40,6 +40,10 @@
     },
     {
       "country": "France",
+      "visitors": 1
+    },
+    {
+      "country": "North Macedonia",
       "visitors": 1
     },
     {
