@@ -1,18 +1,18 @@
 {
-  "totalPageViews": 1337,
+  "totalPageViews": 1342,
   "lastUpdated": "2026-05-19",
   "geoData": [
     {
       "country": "United States",
-      "visitors": 686
+      "visitors": 687
     },
     {
       "country": "Singapore",
-      "visitors": 371
+      "visitors": 372
     },
     {
       "country": "China",
-      "visitors": 144
+      "visitors": 145
     },
     {
       "country": "Japan",
@@ -36,6 +36,10 @@
     },
     {
       "country": "Indonesia",
+      "visitors": 3
+    },
+    {
+      "country": "South Korea",
       "visitors": 3
     },
     {
@@ -68,10 +72,6 @@
     },
     {
       "country": "North Macedonia",
-      "visitors": 1
-    },
-    {
-      "country": "South Korea",
       "visitors": 1
     }
   ]
