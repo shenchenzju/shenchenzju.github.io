@@ -1,6 +1,6 @@
 {
-  "totalPageViews": 1476,
-  "lastUpdated": "2026-05-31",
+  "totalPageViews": 1477,
+  "lastUpdated": "2026-06-01",
   "geoData": [
     {
       "country": "United States",
@@ -43,6 +43,10 @@
       "visitors": 3
     },
     {
+      "country": "Canada",
+      "visitors": 2
+    },
+    {
       "country": "France",
       "visitors": 2
     },
@@ -60,10 +64,6 @@
     },
     {
       "country": "Belgium",
-      "visitors": 1
-    },
-    {
-      "country": "Canada",
       "visitors": 1
     },
     {
