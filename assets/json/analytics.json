@@ -1,10 +1,10 @@
 {
-  "totalPageViews": 2120,
+  "totalPageViews": 2123,
   "lastUpdated": "2026-07-29",
   "geoData": [
     {
       "country": "Singapore",
-      "visitors": 860
+      "visitors": 861
     },
     {
       "country": "United States",
@@ -20,7 +20,7 @@
     },
     {
       "country": "Hong Kong",
-      "visitors": 66
+      "visitors": 67
     },
     {
       "country": "Taiwan",
@@ -63,6 +63,10 @@
       "visitors": 2
     },
     {
+      "country": "",
+      "visitors": 1
+    },
+    {
       "country": "Argentina",
       "visitors": 1
     },
@@ -76,10 +80,6 @@
     },
     {
       "country": "Ecuador",
-      "visitors": 1
-    },
-    {
-      "country": "Israel",
       "visitors": 1
     }
   ]
