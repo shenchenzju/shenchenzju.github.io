@@ -4,7 +4,7 @@
   "geoData": [
     {
       "country": "Singapore",
-      "visitors": 1000
+      "visitors": 1001
     },
     {
       "country": "United States",
@@ -12,7 +12,7 @@
     },
     {
       "country": "China",
-      "visitors": 292
+      "visitors": 291
     },
     {
       "country": "Hong Kong",
