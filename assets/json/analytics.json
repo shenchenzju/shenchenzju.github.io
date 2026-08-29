@@ -1,5 +1,5 @@
 {
-  "totalPageViews": 2374,
+  "totalPageViews": 2376,
   "lastUpdated": "2026-08-29",
   "geoData": [
     {
@@ -67,6 +67,10 @@
       "visitors": 3
     },
     {
+      "country": "Vietnam",
+      "visitors": 2
+    },
+    {
       "country": "Argentina",
       "visitors": 1
     },
@@ -76,10 +80,6 @@
     },
     {
       "country": "Ecuador",
-      "visitors": 1
-    },
-    {
-      "country": "Israel",
       "visitors": 1
     }
   ]
