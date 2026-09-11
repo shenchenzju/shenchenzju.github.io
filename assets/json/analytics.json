@@ -1,10 +1,10 @@
 {
-  "totalPageViews": 2469,
+  "totalPageViews": 2471,
   "lastUpdated": "2026-09-11",
   "geoData": [
     {
       "country": "Singapore",
-      "visitors": 1059
+      "visitors": 1060
     },
     {
       "country": "United States",
@@ -15,12 +15,12 @@
       "visitors": 299
     },
     {
-      "country": "Japan",
+      "country": "Hong Kong",
       "visitors": 74
     },
     {
-      "country": "Hong Kong",
-      "visitors": 73
+      "country": "Japan",
+      "visitors": 74
     },
     {
       "country": "Taiwan",
